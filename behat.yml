@@ -1,0 +1,34 @@
+default:
+  autoload:
+    - %paths.base%/features/bootstrap/
+  suites:
+    default:
+      path: %paths.base%/features
+      contexts:
+        - LogContext:
+            BaseUrl: 'http://hclstg.sites.innoraft.com'
+
+  formatters:
+    html:
+      output_path: %paths.base%\report
+    pretty:
+            verbose: true
+            paths: false
+            snippets: true
+
+  extensions:
+        Behat\MinkExtension:
+            base_url: 'http://hclstg.sites.innoraft.com'
+            selenium2: ~
+            javascript_session: selenium2
+            browser_name: firefox
+
+        elkan\BehatFormatter\BehatFormatterExtension:
+            projectName: BehatTest
+            name: html
+            renderer: Twig,Behat2
+            file_name: index
+            print_args: true
+            print_outp: true
+            loop_break: true
+            show_tags: true

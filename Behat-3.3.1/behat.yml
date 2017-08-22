@@ -1,0 +1,25 @@
+default:
+  context:
+    class: 'ProfilerContext'
+    parameters:
+        base_url: 'https://angular2.maialearning.com/#'
+
+  paths:
+    features: features
+    bootstrap: features/bootstrap
+
+  extensions:
+    Behat\MinkExtension\Extension:
+      selenium2: ~
+      goutte: ~
+
+chrome:
+  extensions:
+    Behat\MinkExtension\Extension:
+      javascript_session: selenium2
+      browser_name: chrome
+
+firefox:
+  extensions:
+    Behat\MinkExtension\Extension:
+      browser_name: firefox
